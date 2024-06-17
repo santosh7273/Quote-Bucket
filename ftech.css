@@ -10,6 +10,7 @@
     height:100vh;
 }
 body{
+    cursor: pointer;
     margin:0;
     background-image: url('https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg');
     background-position: bottom;

@@ -22,6 +22,7 @@ body,html{
     overflow-x: hidden;
 }
 body {
+    cursor: pointer;
     background-image: url('https://cdn.pixabay.com/photo/2022/10/03/21/47/fog-7496901_1280.jpg');
     background-position: bottom;
     background-size: cover;

@@ -10,6 +10,7 @@
     height:80vh;
 }
 body{
+    cursor: pointer;
     margin:0;
     background-image: url('https://4kwallpapers.com/images/wallpapers/macos-monterey-stock-black-dark-mode-layers-5k-2560x1440-5889.jpg');
     background-position: bottom;

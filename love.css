@@ -10,6 +10,7 @@
     height:80vh;
 }
 body{
+    cursor: pointer;
     margin:0;
     background-image: url('https://wallpapercave.com/wp/wp8361413.jpg');
     background-position: bottom;
