@@ -1,0 +1,465 @@
+body {
+    margin:0;
+    background-color: black;
+    font-family: calibri;
+  }
+  body:hover{
+    cursor:pointer;
+  }
+  *{
+    font-family: calibri;
+  }
+  /* header */
+  .logo {
+    color:white;
+    display:inline-lock;
+    font-family: calibri;
+  }
+  .header {
+    position:fixed;
+    top:0;
+      background-color: black;
+      position: fixed;
+      width: 100%;
+      z-index: 3;
+  }
+  
+  .header ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      overflow: hidden;
+      background-color: black;
+  }
+  
+  .header li a {
+      display: block;
+      padding: 20px 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+      background-color: #f4f4f4;
+      color:black;
+  }
+  
+  .header .logo {
+      display: block;
+      float: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      font-size:2rem;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+      clear: both;
+      max-height: 0;
+      transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      padding: 28px 20px;
+      position: relative;
+      user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+      background: white;
+      display: block;
+      height: 2px;
+      position: relative;
+      transition: background .2s ease-out;
+      width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+      background: white;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all .2s ease-out;
+      width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+      top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+      top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+      display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+      max-height: 300px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+      transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+      transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+      top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+      .header li {
+          float: left;
+      }
+      .header li a {
+          padding: 22px 14px;
+      }
+      .header .menu {
+          clear: none;
+          float: right;
+          max-height: none;
+      }
+      .header .menu-icon {
+          display: none;
+      }
+  }
+#s1{
+    height:77vh;
+    width:100%;
+    background-size:cover;
+    background-image: url('https://c1.wallpaperflare.com/preview/874/965/110/black-business-computer-desk.jpg');
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'segoe ui';
+}
+.al{
+    text-align: center;
+    width:150px;
+    height:5px;
+    background-color: white;
+    border-radius: 10px;
+    margin:25px auto;
+}
+.s11 h2{
+    font-size:6vmin;
+    color:white;
+    margin:0 0;
+    text-align: center;
+}
+.s11 h1{
+    font-size:7vmin;
+    color:white;
+    margin:0 0;
+    text-align: center;
+}
+.tr1{
+    font-size:3vmin;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    margin:1.5rem auto;
+}
+.tr1 a{
+    background-color:cyan;
+    border-radius:10px;
+    padding:8px 15px;
+    text-decoration: none;
+    color:black;
+}
+.tr1 a:hover{
+color:white;
+transition:0.7s;
+letter-spacing: 1px;
+background:red;
+}
+html{
+    scroll-behavior: smooth;
+}
+#s2 .s21{
+    color:white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.s22{
+    color:white;
+    display:flex;
+    margin:auto;
+    width:80%;
+}
+.s22 img{
+    border-radius:30px;
+    height:auto;
+    width:85%;
+}
+.f2 img{
+    width:80%;
+    border: 30px;
+    height:auto;
+}
+.f1{
+    margin:30px 3vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction:column;
+}
+.f1 p{
+    width:80%;
+    margin:auto;
+    font-size:3vmin;
+}
+.f2{
+    margin:30px 3vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction:column;
+}
+.f1 h1{
+    font-size:7vmin;
+}
+.f2 h1{
+    font-size:7vmin;
+}
+.f2 p{
+    width:80%;
+    margin:auto;
+    font-size:3vmin;
+}
+.tw{
+    height:70vh;
+    width:100%;
+    margin:auto;
+    background-image:url('https://www.adl.org/sites/default/files/images/2023-02/COVER_twitterbirds_1280x720.jpg');
+    background-position: bottom;
+    background-size:cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+}
+.s21 h1{
+    font-size:6vmin;
+}
+.tw1 h1{
+    font-size:7vmin;
+    text-align: center;
+}
+.tw1 h2{
+    text-align: center;
+    font-size:6vmin;
+}#ab1{
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    width:100%;
+    background:black;
+    margin-bottom: 5vh;
+}
+#ab1 h1{
+    text-align: center;
+    color:white;
+    font-size:6vmin;
+}
+.ab{
+    display: flex;
+    width:90%;
+    margin:auto;
+}
+.ab img{
+    width:100%;
+    border-radius:30px;
+    height:12rem;
+}
+.ab p{
+    font-size:4vmin;
+    margin:1rem 1rem;
+}
+#ab1 .ab{
+    color:white;
+}
+.jat{
+    background-image: url('https://www.opencolleges.edu.au/cdn/shop/articles/Leaderships_speeches_hero_min.jpg?v=1692174910&width=750');
+    background-position: bottom;
+    background-size:cover;
+    width:100%;
+    height:65vh;
+    justify-content: center;
+    align-items:center;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+.cr{
+    color:gold;
+}
+.cr h2{
+    text-align:center;
+    font-size:6vmin;
+}
+.cr h1{
+    text-align:center;
+    font-size:7vmin;
+}
+footer{
+    width:100%;
+    height:50vh;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fo{
+    width:90%;
+    margin:auto;
+    display:flex;
+}
+.fo1,.fo2,.fo3{
+    margin:1rem 2rem;
+}
+.fo1 li{
+    list-style-type:bullets;
+    font-size:3vmin;
+}
+.fo2{
+    width:45%;
+}
+.fo2 .fo22{
+    display:flex;
+}
+.fo22 p{
+    font-size:3vmin;
+}
+.fo22 a{
+    margin:1vw 1vw;
+    font-size:3vw;
+}
+.fo3 li{
+    list-style-type: none;
+}
+.fo3 a{
+    text-decoration:none;
+    font-size:3vmin;
+    color:white;
+}
+.fo3 li{
+    display:flex;
+}
+.fo3 li a:hover{
+    color:cyan;
+    letter-spacing:0.2px;
+transition: 0.5s;
+}
+.fo li .nav-link{
+    padding-left:1vw;
+    font-size:7vw;
+}
+.fo22 a:hover{
+    color:white;
+}
+.fo1 li:hover{
+    color:cyan;
+    cursor:pointer;
+    transition:0.5s;
+    letter-spacing: 0.2px;
+}
+.fo2 p:hover{
+    color:cyan;
+}
+@media screen and (max-width:636px){
+    .fo li .nav-links{
+        padding:1rem 1rem;
+        font-size:7vw;
+        color:red;
+        background-color: red;
+    }
+    .fo1 li {
+        font-size:4.5vmin;
+    }
+    .fo3 li a{
+        font-size:4.5vmin;
+    }
+    .fo{
+        flex-direction:column;
+    }
+    .fo2{
+        width:80%;
+        margin:auto;
+    }
+    .fo22 a{
+        font-size:7vw;
+    }
+    .fo2,.fo1,.fo3{
+        margin-bottom:0;
+    }
+}
+@media screen and (max-width:850px){
+    .s21 h1{
+        font-size:5vmin;
+    }
+    .s22{
+        flex-direction: column;
+        width:90%;
+        margin:auto;
+    }
+    .f1 p{
+        font-size:5vmin;
+        width:100%;
+        margin:auto;
+    }
+    .f2 p{
+        width:100%;
+        font-size:5vmin;
+        margin:auto;
+    }
+    .f1 h1{
+        font-size:7vmin;
+    }
+    .f2 h1{
+        font-size:7vmin;
+    }
+    .ab{
+        flex-direction:column;
+    }
+    .ab img{
+        width:70%;
+        margin:auto;
+        border-style: solid;
+    border-color:white;
+    height:auto;
+    }
+    .ab p{
+        margin:1rem 0rem;
+        font-size:4.2vmin;
+    }
+}

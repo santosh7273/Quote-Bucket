@@ -1,0 +1,50 @@
+ScrollReveal().reveal('.s11',{
+    duration:1500,
+    origin:'top',
+    distance:'10px'
+});
+ScrollReveal().reveal('.f1',{
+    duration:1500,
+    origin:'bottom',
+    distance:'10px',
+    delay:1000
+});
+ScrollReveal().reveal('.f2',{
+    duration:1500,
+    origin:'left',
+    distance:'10px',
+    delay:500
+});
+ScrollReveal().reveal('.tw1',{
+    duration:1500,
+    origin:'right',
+    distance:'10px',
+    delay:500
+});
+ScrollReveal().reveal('.ab',{
+    duration:1500,
+    origin:'top',
+    distance:'10px',
+    delay:500
+});
+ScrollReveal().reveal('.cr',{
+    duration:1500,
+    origin:'bottom',
+    distance:'10px',
+    delay:500
+});
+ScrollReveal().reveal('.fo2',{
+    duration:1500,
+    origin:'left',
+    distance:'10px'
+});
+ScrollReveal().reveal('.fo1',{
+    duration:1500,
+    origin:'right',
+    distance:'10px'
+});
+ScrollReveal().reveal('.fo3',{
+    duration:1500,
+    origin:'bottom',
+    distance:'10px'
+});

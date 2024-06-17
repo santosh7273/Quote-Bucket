@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    color:black;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top:5vh;
+    font-size: 5vmin;
+}
+.lin{
+    background: brown;
+    width:200px;
+    height:5px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 3vh;
+}
+body,html{
+    overflow-x: hidden;
+}
+body {
+    background-image: url('https://cdn.pixabay.com/photo/2022/10/03/21/47/fog-7496901_1280.jpg');
+    background-position: bottom;
+    background-size: cover;
+    height: 115vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+}
+.main {
+    background: linear-gradient(to right, black, grey);
+    width: 60%;
+    margin: auto;
+    box-shadow: 0px 0px 3px grey;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 8vh;
+}
+
+
+.main1 {
+    background: linear-gradient(to right, grey, white);
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transition: 0.5s;
+    padding-top: 5px;
+}
+
+.main1 a {
+    display: inline-block;
+    text-decoration: none;
+    margin: 10px 30px;
+    font-size: 3vmin;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: brown;
+    color: white;
+    border-radius: 10px;
+}
+
+.main1 a:hover {
+    color: black;
+    background: cyan;
+    letter-spacing: 1px;
+    transition: 1s;
+}
+
+.main1 p {
+    justify-content: center;
+    align-items: center;
+    font-size: 3vmin;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 30px;
+}
+
+.main1 h1 {
+    padding: 10px 30px;
+    font-size: 4.5vmin;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bd {
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.bd button {
+    font-size: 3vmin;
+    outline: 0;
+    border: 0;
+    margin: 25px 25px;
+    padding: 10px 10px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+
+.bd button:hover {
+    color: black;
+    background-color: aquamarine;
+    transition: 1s;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 878px) {
+    h1{
+        margin-top: 2.5vh;
+    }
+    .main {
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        margin-top: 20vh;
+        justify-content: center;
+    }
+
+    .main p {
+        font-size: 3.5vmin;
+    }
+
+    .main1 h1 {
+        font-size: 5vmin;
+    }
+
+    .main a {
+        font-size: 3.5vmin;
+    }
+    .main{
+        margin-top: 4vh;;
+    }
+}
