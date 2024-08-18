@@ -1,11 +1,37 @@
-const url1="https://api.quotable.io/random";
-        async function adh(url){
-            const res=await fetch(url);
-            var d=await res.json();
-            document.getElementById('author1').innerHTML = d.author;
-            document.getElementById('quote1').innerHTML = d.content;
+const authorElement = document.getElementById('author1');
+const quoteElement = document.getElementById('quote1');
+
+function dig() {
+    window.open(
+        "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quoteElement.textContent),
+        "Tweet Window",
+        "width=600,height=300"
+    );
+}
+adh();
+function adh() {
+    quoteElement.textContent = "Loading....";
+    authorElement.textContent = "";
+
+    fetch('https://api.api-ninjas.com/v1/quotes', {
+        headers: {
+            'X-Api-Key': '3BUrrmc/1eGwq65G93Q75A==aITCDmsB1MX8srLw'
         }
-        adh(url1);
-        function dig(){
-            window.open("https://twitter.com/intent/tweet?text="+quote1.innerHTML,"Tweet Window","width=600,height=300");
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.length > 0) {
+            const quoteData = data[0];
+            quoteElement.textContent = `"${quoteData.quote}"`;
+            authorElement.textContent = `- ${quoteData.author}`;
+        } else {
+            quoteElement.textContent = 'No quotes found.';
+            authorElement.textContent = '';
         }
+    })
+    .catch(error => {
+        console.error('Error fetching quote:', error);
+        quoteElement.textContent = 'Failed to fetch quote. Please try again later.';
+        authorElement.textContent = '';
+    });
+}
