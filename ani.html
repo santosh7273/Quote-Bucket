@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Quote Generator</title>
+    <style>
+        .al11{
+    border-radius: 20px;
+    color:gold;
+    background-color: gold;
+    width:200px;
+    margin: auto;
+    text-align: center;
+    height:5px;
+}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://img.freepik.com/free-photo/japan-background-digital-art_23-2151546131.jpg');
+            background-position: bottom;
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            color:white;
+            padding: 20px;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        #quote-box {
+            margin-bottom: 20px;
+        }
+
+        #quote {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        #author {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Anime Quote Generator</h1>
+        <div class="al11"></div>
+        <div id="quote-box">
+            <p id="quote">Click the button to get a quote!</p>
+            <p id="author"></p>
+        </div>
+        <button id="new-quote">New Quote</button>
+    </div>
+    <script>
+        const quotes = [
+            { "quote": "It's not the face that makes someone a monster; it's the choices they make with their lives.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "To know sorrow is not terrifying. What is terrifying is to know you can't go back to happiness you could have.", "character": "Matsumoto Rangiku", "anime": "Bleach" },
+            { "quote": "In our society, letting others find out what you're really like is a very risky thing to do.", "character": "Hikigaya Hachiman", "anime": "My Teen Romantic Comedy SNAFU" },
+            { "quote": "If you can't do something, then don't. Focus on what you can do.", "character": "Gintoki Sakata", "anime": "Gintama" },
+            { "quote": "I don’t care what the others think. I’m not gonna give up on myself.", "character": "Kamina", "anime": "Tenga Toppa Gurren Lagann" },
+            { "quote": "Even if I die, I will die. I’m not going to die trying to save someone else.", "character": "Kirito", "anime": "Sword Art Online" },
+            { "quote": "No matter how deep the night, it always turns to day, eventually.", "character": "Brook", "anime": "One Piece" },
+            { "quote": "No matter what happens, I’m going to keep on going.", "character": "Monkey D. Luffy", "anime": "One Piece" },
+            { "quote": "If you don’t like your destiny, don’t accept it.", "character": "Uchiha Itachi", "anime": "Naruto" },
+            { "quote": "Sometimes I don’t get you at all. It’s like you’re speaking a different language.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "I’m not a hero because I want your approval. I do it because I want to!", "character": "Izuku Midoriya", "anime": "My Hero Academia" },
+            { "quote": "I will never give up, and I will never stop fighting.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "You don’t need a reason to help people.", "character": "Zorro", "anime": "One Piece" },
+            { "quote": "It’s not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.", "character": "Gintoki Sakata", "anime": "Gintama" },
+            { "quote": "We can’t all be heroes. Someone has to sit on the curb and clap as they go by.", "character": "Kenshin Himura", "anime": "Rurouni Kenshin" },
+            { "quote": "The moment you think of giving up, think of the reason why you held on so long.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "If you’re going to insist on having things your way, then I’ll have to make you my enemy.", "character": "Sesshomaru", "anime": "Inuyasha" },
+            { "quote": "The world isn’t perfect. But it’s there for us, trying the best it can.", "character": "Hiromu Arakawa", "anime": "Fullmetal Alchemist" },
+            { "quote": "It’s not the strong that survive, but the ones who can adapt.", "character": "Shanks", "anime": "One Piece" },
+            { "quote": "When you have to save someone, it’s not just the body that’s hurt. The mind needs saving, too.", "character": "Rintarou Okabe", "anime": "Steins;Gate" },
+            { "quote": "To truly know someone is to know their past and their pain.", "character": "Shouyou Hinata", "anime": "Haikyuu!!" },
+            { "quote": "The strongest people are the ones who are willing to let others shine.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Sometimes you have to break your own heart to set things right.", "character": "Hikigaya Hachiman", "anime": "My Teen Romantic Comedy SNAFU" },
+            { "quote": "Even if it’s a little painful, it’s still a beautiful experience.", "character": "Kamina", "anime": "Tenga Toppa Gurren Lagann" },
+            { "quote": "Everyone has a different way of dealing with pain, but we all have it.", "character": "Misaki Mei", "anime": "Another" },
+            { "quote": "True strength is not just physical. It’s the ability to stand up even after falling.", "character": "Eren Yeager", "anime": "Attack on Titan" },
+            { "quote": "Sometimes, the only way to fix things is to break them.", "character": "Kamina", "anime": "Tenga Toppa Gurren Lagann" },
+            { "quote": "Life is full of choices. Do what you believe is right.", "character": "Ryuuko Matoi", "anime": "Kill la Kill" },
+            { "quote": "Sometimes you have to face the darkness to reach the light.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The heart of a hero isn’t defined by strength but by the willingness to sacrifice.", "character": "Izuku Midoriya", "anime": "My Hero Academia" },
+            { "quote": "In the end, the things that matter most are the things we don’t even notice.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The only thing that’s truly impossible is the thing you give up on.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "You can’t keep living in the past. It’s time to move forward.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "There’s no such thing as a perfect person. We’re all just trying our best.", "character": "Tsunade", "anime": "Naruto" },
+            { "quote": "The pain you feel today will be the strength you feel tomorrow.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "Everyone has their own struggles. It’s how we face them that defines us.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Don’t worry about the mistakes you made. They are what makes you stronger.", "character": "Gintoki Sakata", "anime": "Gintama" },
+            { "quote": "Sometimes it’s the small moments that make life worth living.", "character": "Kamina", "anime": "Tenga Toppa Gurren Lagann" },
+            { "quote": "To understand someone, you need to walk a mile in their shoes.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "The future is something you create. It’s not set in stone.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "The true measure of a person is not how they handle victory but how they handle defeat.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "Sometimes, you have to do the things you hate to protect the ones you love.", "character": "Shinji Ikari", "anime": "Neon Genesis Evangelion" },
+            { "quote": "The journey may be tough, but that’s what makes it worthwhile.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "You can’t change the past, but you can shape the future.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Even the smallest person can change the course of the future.", "character": "Frodo Baggins", "anime": "The Lord of the Rings" },
+            { "quote": "Life is an adventure. Embrace every moment.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Sometimes the hardest battles are the ones within ourselves.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "You have to keep moving forward, no matter how tough things get.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "If you want to achieve something, you have to be willing to put in the effort.", "character": "Izuku Midoriya", "anime": "My Hero Academia" },
+            { "quote": "In every defeat, there’s a chance to grow stronger.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "No matter how dark the night, the dawn will come.", "character": "Shanks", "anime": "One Piece" },
+            { "quote": "The strength of a person is measured by how they handle their burdens.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "No matter how strong you become, there will always be someone stronger.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Life is full of struggles, but that’s what makes it worth living.", "character": "Gintoki Sakata", "anime": "Gintama" },
+            { "quote": "You must face your fears to overcome them.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "True strength comes from within. Believe in yourself.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "To protect the ones you love, sometimes you have to make sacrifices.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Sometimes the best way to move forward is to face your past.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "It’s not about winning or losing; it’s about how you fight the battle.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "In every struggle, there’s an opportunity to grow.", "character": "Izuku Midoriya", "anime": "My Hero Academia" },
+            { "quote": "The heart of a warrior isn’t measured by their strength but by their courage.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "To achieve greatness, you must first believe in yourself.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Every obstacle is a chance to prove your strength.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "You can’t change the past, but you can shape the future.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "Strength isn’t just physical. It’s mental and emotional as well.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "The only way to achieve your goals is through perseverance.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "Sometimes the smallest actions can make the biggest difference.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Even in the darkest times, there’s always a glimmer of hope.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "True courage is facing your fears and overcoming them.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Life is a journey filled with obstacles, but that’s what makes it worthwhile.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The greatest battles are fought within the heart.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "Every step you take, no matter how small, brings you closer to your goal.", "character": "Izuku Midoriya", "anime": "My Hero Academia" },
+            { "quote": "Strength isn’t about how much you can lift but how much you can endure.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "The heart of a hero is defined by their actions, not their words.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even if you fall, you can always get back up.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The only limit is the one you set for yourself.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Strength comes from the will to never give up.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "You have the power to shape your own destiny.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "True strength is having the courage to stand up for what you believe in.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "Sometimes the hardest battles are the ones we fight within ourselves.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "In the face of adversity, the true strength of a person is revealed.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The journey of a thousand miles begins with a single step.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Every challenge you face is an opportunity to grow stronger.", "character": "Erza Scarlet", "anime": "Fairy Tail" },
+            { "quote": "No matter how tough things get, never lose hope.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "The only way to truly achieve your dreams is to never give up.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "Strength is not just about physical power; it’s about mental fortitude.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "Even in the darkest times, the light of hope can guide you.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "You have the power to change your destiny.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "No matter how many times you fall, what matters is that you get up again.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "True strength comes from the willingness to fight for what you believe in.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "The path to greatness is paved with determination and perseverance.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "To overcome obstacles, you must first believe in yourself.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "The heart of a warrior is defined by their courage and resilience.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even the smallest actions can lead to great changes.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The only way to achieve your dreams is to never give up.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Strength is not just about physical power; it’s about the will to never give up.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Every challenge you face is an opportunity to grow stronger.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The true measure of a person is their ability to rise above their struggles.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how tough things get, always believe in yourself.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even in the darkest times, you can find hope.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The journey of a hero is filled with challenges and triumphs.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "True strength comes from within and is revealed through adversity.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "To overcome obstacles, you must first believe in yourself and your abilities.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The heart of a warrior is defined by their courage and determination.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how many times you fall, what matters is how many times you get up.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even the smallest actions can make a big difference in the world.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The path to greatness is paved with perseverance and determination.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Strength is not just about physical power; it’s about the will to keep going.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Every challenge is an opportunity to grow and become stronger.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The true measure of a person is their ability to rise above their struggles.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how tough things get, always have faith in yourself.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even in the darkest times, there is always a glimmer of hope.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The journey of a hero is filled with challenges and triumphs.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "True strength is not just physical but also mental and emotional.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "To achieve your dreams, you must first believe in yourself and never give up.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The heart of a warrior is revealed through their courage and resilience.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how many times you fall, what matters is your ability to get back up.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even the smallest actions can lead to great changes in the world.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The path to greatness is paved with perseverance and determination.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Strength is not just about physical power; it’s about the will to keep going.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Every challenge you face is an opportunity to grow stronger.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The true measure of a person is their ability to rise above their struggles.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how tough things get, always believe in yourself.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even in the darkest times, there is always a glimmer of hope.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The journey of a hero is filled with challenges and triumphs.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "True strength comes from within and is revealed through adversity.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "To overcome obstacles, you must first believe in yourself and your abilities.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The heart of a warrior is defined by their courage and determination.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how many times you fall, what matters is how many times you get up.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even the smallest actions can make a big difference in the world.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The path to greatness is paved with perseverance and determination.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "Strength is not just about physical power; it’s about the will to keep going.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "Every challenge is an opportunity to grow and become stronger.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The true measure of a person is their ability to rise above their struggles.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how tough things get, always have faith in yourself.", "character": "Goku", "anime": "Dragon Ball Z" },
+            { "quote": "Even in the darkest times, there is always a glimmer of hope.", "character": "Naruto Uzumaki", "anime": "Naruto" },
+            { "quote": "The journey of a hero is filled with challenges and triumphs.", "character": "Luffy", "anime": "One Piece" },
+            { "quote": "True strength is not just physical but also mental and emotional.", "character": "Kakashi Hatake", "anime": "Naruto" },
+            { "quote": "To achieve your dreams, you must first believe in yourself and never give up.", "character": "Natsu Dragneel", "anime": "Fairy Tail" },
+            { "quote": "The heart of a warrior is revealed through their courage and resilience.", "character": "Mikasa Ackerman", "anime": "Attack on Titan" },
+            { "quote": "No matter how many times you fall, what matters is your ability to get back up.", "character": "Goku", "anime": "Dragon Ball Z" }
+        ];
+
+        document.getElementById('new-quote').addEventListener('click', displayRandomQuote);
+
+        function displayRandomQuote() {
+            document.getElementById('quote').textContent='Loading';
+            document.getElementById('author').textContent='Loading';
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            document.getElementById('quote').textContent = `"${quote.quote}"`;
+            document.getElementById('author').textContent = `- ${quote.character} (${quote.anime})`;
+        }
+
+        // Display an initial quote on page load
+        displayRandomQuote();
+    </script>
+</body>
+</html>
