@@ -1,0 +1,100 @@
+.main1{
+    width: 80%;
+    color:white;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    border-radius: 20px;
+    text-align: center;
+    height:100vh;
+}
+html,body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+body{
+    cursor: pointer;
+    margin:0;
+    background-image: url('https://rare-gallery.com/mocahbig/423792-stars-night-starry-night-dark-outdoors-sky-artwork.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100vw;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main1{
+    margin-top:10vh;
+}
+.main1 h1{
+    font-size:5vmin;
+}
+.main1 h2{
+    font-size:5vmin;
+}
+.b2{
+    margin:1rem 1rem;
+    border: none;
+    outline:none;
+    font-size:3.5vmin;
+    border-radius: 20px;
+    padding:10px 30px;
+    border-color: white;
+    border-style: solid;
+    color:black;
+    background:cyan;
+    padding:0.5rem 0.7rem;
+    width:130px;
+}
+.b2:hover{
+    color:white;
+    background-color: grey;
+    transition:0.5s;
+}
+.b1:hover{
+    color:black;
+    background-color: white;
+    transition:0.5s;
+}
+.b1{
+    border:none;
+    outline: none;
+    border-color: white;
+    border-style: solid;
+    margin:1rem 1rem;
+    font-size:3.5vmin;
+    border-radius: 20px;
+    padding:0.5rem 0.7rem;
+    color:white;
+    background:black;
+    width:145px;
+}
+.al11{
+    border-radius: 20px;
+    color:gold;
+    background-color: gold;
+    width:200px;
+    margin: auto;
+    text-align: center;
+    height:5px;
+}
+@media screen and (max-width:500px){
+    .main1 h2{
+        font-size:5vmin;
+    }
+    .al11{
+        color:black;
+        background-color: gold;
+        width:100px;
+        margin: auto;
+        text-align: center;
+        height:5px;
+        border-radius: 20px;
+    }
+    .main1{
+        width: 100%;
+        margin:auto;
+        margin-top:20vh;
+    }
+}
